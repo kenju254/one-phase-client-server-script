@@ -28,7 +28,7 @@ s.connect((remote_ip, port))
 print 'Socket connected to ' + host + ' on ip ' + remote_ip
 
 # Sending some data to a remote server
-message = "GET / HTTP/1. 1\r\n\r\n"
+message = "GET / HTTP/1.1\r\n\r\n"
 
 try:
     #Set the whole string
@@ -39,3 +39,7 @@ except socket.error:
     sys.exit()
 
 print 'Message sent successfully'
+
+# Now receive data
+reply = s.recv(4096)
+print reply
