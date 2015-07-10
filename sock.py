@@ -10,3 +10,13 @@ except socket.error, msg:
     
 print 'Sock Created' 
 
+host = 'www.google.com'
+
+try:
+    remote_ip = socket.gethostbyname( host )
+except socket.gaierror:
+    #could not resolve
+    print 'Hostname could not be resolved. Exiting'
+    sys.exit()
+
+print 'IP address of ' + host + ' is ' + remote_ip
